@@ -1,3 +1,15 @@
 h1 welcome page
 hr
+- if user_signed_in?
+  .role Вы вошли как сотрудник
+  .email = current_user.email
+  .link_to_signed_out = link_to 'Выйти', destroy_user_session_path, method: :delete
+- elsif client_signed_in?
+  .role Вы вошли как Клиент
+  .email = current_client.email
+  .link_to_signed_out = link_to 'Выйти', destroy_client_session_path, method: :delete
+-else
+  = link_to 'Вход для сотрудников', new_user_session_path
+  br
+  = link_to 'Вход для клиентов', new_client_session_path
 
