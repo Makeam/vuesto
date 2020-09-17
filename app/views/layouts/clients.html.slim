@@ -1,0 +1,15 @@
+<!DOCTYPE html/>
+html
+  head
+    title Vuesto
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_pack_tag 'application'
+    = javascript_pack_tag 'clients'
+
+  body
+    .container data-behavior='vue'
+      app msg='Client layout used'
+    = yield
