@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :clients
+  devise_for :admins
+
+  get '/staff' => "staff#index", :as => :admin_root
+  get '/clients' => "clients#index", :as => :client_root
+
+  root to: "base#main_page"
 end
